@@ -1,5 +1,19 @@
-abc = [1,2]
-#freadzeda
-for i in abc:
-    print(i) 
-    
+# ChatRoom
+def connection():
+    pass
+
+def message():
+    pass
+
+def multi_threading():
+    pass
+
+def identite():
+    pass
+
+def ui():
+    pass
+
+
+def main():
+    pass
