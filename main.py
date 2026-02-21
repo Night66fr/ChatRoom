@@ -10,8 +10,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connection:
     conn, addr = connection.accept()
     with conn:
         print(f"Connected by {addr}")
+        
         while True:
             data = conn.recv(1024)
+            conn.sendall(b"Hello, world")
             if not data:
                 break
             conn.sendall(data)
