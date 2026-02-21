@@ -5,18 +5,19 @@ PORT = 1966 # Port > 1024 (pas de droit) (sudo en dessous de 1024)
 
 #attend une connexion
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connection:
+    connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     connection.bind((HOST, PORT))
     connection.listen()
     conn, addr = connection.accept()
     with conn:
         print(f"Connected by {addr}")
+        conn.sendall(b"Hello, world")
         
         while True:
             data = conn.recv(1024)
-            conn.sendall(b"Hello, world")
+            print(f'{data}')
             if not data:
                 break
-            conn.sendall(data)
 
 
 def message():
