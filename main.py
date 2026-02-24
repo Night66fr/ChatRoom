@@ -5,7 +5,7 @@ import threading
 import time
 
 
-HOST = "127.0.0.1" # IP LocalHost
+HOST = "0.0.0.0" # IP LocalHost
 PORT = 1966 # Port > 1024 (pas de droit) (sudo en dessous de 1024)
 
 def message(conn):
