@@ -3,6 +3,11 @@ import socket
 HOST = "127.0.0.1" # IP LocalHost
 PORT = 1966 # Port > 1024 (pas de droit) (sudo en dessous de 1024)
 
+def message():
+    conn.sendall(b"Hello, world\n")
+    conn.sendall(b'You can chat right now or login using (LOG)\n')
+
+
 #attend une connexion
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connection:
     connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -11,17 +16,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connection:
     conn, addr = connection.accept()
     with conn:
         print(f"Connected by {addr}")
-        conn.sendall(b"Hello, world")
-        
+        message()
         while True:
             data = conn.recv(1024)
             print(f'{data}')
             if not data:
                 break
 
-
-def message():
-    pass
 
 def multi_threading():
     pass
