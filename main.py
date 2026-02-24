@@ -1,7 +1,7 @@
 # ChatRoom
 import socket
 HOST = "127.0.0.1" # IP LocalHost
-PORT = 1966 # Port > 1024 (pas de droit sudo en dessous de 1024)
+PORT = 1967 # Port > 1024 (pas de droit sudo en dessous de 1024)
 
 def message():
     conn.sendall(b"Hello, world\n")
@@ -19,6 +19,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connection:
         while True:
             data = conn.recv(1024)
             print(f'{data}')
+            conn.sendall(data)
             if not data:
                 break
 
@@ -27,6 +28,9 @@ def multi_threading():
     pass
 
 def identite():
+    pass
+
+def ui():
     pass
 
 def main():
