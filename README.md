@@ -22,9 +22,9 @@ Les deux machines doivent être sur le même réseau (local ou VPN)
 
 
 Lancer le serveur
-
-bashpython3 chatroom.py
-
+```
+python3 chatroom.py
+```
 Le serveur écoute par défaut sur le port 1966 (toutes interfaces : 0.0.0.0).
 
 
@@ -36,12 +36,14 @@ bashnc <IP_DU_SERVEUR> 1966
 
 Exemples :
 
-bash# Réseau local
+# Réseau local
+```
 nc 192.168.1.134 1966
-
+```
 # Via ZeroTier ou Tailscale (voir section VPN ci-dessous)
+```
 nc 10.147.20.x 1966
-
+```
 
 Utilisation à distance — VPN
 
@@ -54,15 +56,16 @@ Créer un réseau sur https://my.zerotier.com
 Installer ZeroTier sur chaque machine :
 
 
-bash   # Debian/Ubuntu
+# Debian/Ubuntu
+```
    curl -s https://install.zerotier.com | sudo bash
-
+```
 
 Rejoindre le réseau :
 
-
-bash   sudo zerotier-cli join <NETWORK_ID>
-
+```
+sudo zerotier-cli join <NETWORK_ID>
+```
 
 Autoriser les machines dans l'interface ZeroTier
 Récupérer l'IP ZeroTier de la machine serveur (sudo zerotier-cli listnetworks) et s'y connecter avec netcat
